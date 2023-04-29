@@ -1,0 +1,41 @@
+{
+    "name": "nextjs-reactquery",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build:staging": "next lint && env-cmd -f .env.staging next build",
+        "build:develop": "next lint && env-cmd -f .env.develop next build",
+        "build:production": "next lint && env-cmd -f .env.production next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@ant-design/icons": "^4.8.0",
+        "@next/font": "13.1.1",
+        "@tanstack/react-query": "^4.20.4",
+        "@tanstack/react-query-devtools": "^4.20.4",
+        "@types/node": "18.11.18",
+        "@types/react": "18.0.26",
+        "@types/react-dom": "18.0.10",
+        "antd": "^5.1.2",
+        "axios": "^1.2.1",
+        "bootstrap": "^5.2.3",
+        "clsx": "^1.2.1",
+        "dayjs": "^1.11.7",
+        "env-cmd": "^10.1.0",
+        "eslint": "8.30.0",
+        "eslint-config-next": "13.1.1",
+        "next": "13.1.1",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "react-router-dom": "^6.6.1",
+        "sass": "^1.57.1",
+        "typescript": "4.9.4"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.47.1",
+        "@typescript-eslint/parser": "^5.47.1",
+        "dotenv": "^16.0.3"
+    }
+}

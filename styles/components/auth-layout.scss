@@ -1,0 +1,23 @@
+$menu-width: 265px;
+$header-height: 65px;
+
+.authlayout {
+    &-root {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 auto;
+        justify-content: center;
+        align-items: center;
+        background-image: linear-gradient(rgb(255, 255, 255), rgb(204, 204, 204));
+    }
+    &-container {
+        min-width: 800px;
+        min-height: 455px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+    }
+}

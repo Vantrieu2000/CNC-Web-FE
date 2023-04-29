@@ -1,0 +1,50 @@
+$primary-color: #1677ff;
+$main-color: #b22201;
+$secondary-color: #001529;
+
+$text-color-contrast: #fff;
+$text-color-main: #333;
+$text-color-sub: #666;
+$text-color-note: #999;
+
+$fs-page: 18px;
+$fs-title: 16px;
+$fs-main: 14px;
+$fs-sub: 12px;
+
+$element-border-radius: 10px;
+$element-padding: 10px;
+$element-margin: 5px;
+
+$button-border-radius: 10px;
+
+:export {
+  primaryColor: $primary-color;
+  mainColor: $main-color;
+  secondaryColor: $secondary-color;
+
+  textColor_main: $text-color-main;
+  textColor_sub: $text-color-sub;
+  textColor_note: $text-color-note;
+
+  fs_title: $fs-title;
+  fs_main: $fs-main;
+  fs_sub: $fs-sub;
+
+  element_borderRadius: $element-border-radius;
+  element_padding: $element-padding;
+  element_margin: $element-margin;
+
+  button_borderRadius: $button-border-radius;
+}
+
+///USAGE
+// import variables from '../styles/variables.module.scss'
+
+// export default function MyApp({ Component, pageProps }) {
+//   return (
+//     <Layout color={variables.primaryColor}> //can be used as a variable in component
+//       <Component {...pageProps} />
+//     </Layout>
+//   )
+// }
