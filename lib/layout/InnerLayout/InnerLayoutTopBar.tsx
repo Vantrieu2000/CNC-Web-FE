@@ -8,8 +8,12 @@ export const InnerLayoutTopBar = () => {
 
   return (
     <div className="innerlayout-topbar">
-      <div className="innerlayout-topbar__logo">This is logo</div>
-      <div className="innerlayout-topbar__search">
+      <div className="innerlayout-topbar__logo">
+        <div className="logo__inner">
+          <img src="/images/logo.png" />
+        </div>
+      </div>
+      <div className="innerlayout-topbar__search item-pc">
         <Search placeholder="Tìm kiếm sản phẩm...." size="large" onSearch={onSearch} enterButton />
       </div>
       <div className="innerlayout-topbar__hotline">
@@ -17,7 +21,7 @@ export const InnerLayoutTopBar = () => {
           Hotline: <a href="tel:098 1767976">098 1767976</a>
         </div>
       </div>
-      <div className="innerlayout-topbar__social">
+      <div className="innerlayout-topbar__social item-pc">
         <div className="logo-social">
           <FacebookFilled style={{ fontSize: "32px" }} />
         </div>

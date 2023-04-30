@@ -1,13 +1,14 @@
 import {
-  MailOutlined,
   AppstoreOutlined,
   ContainerOutlined,
   DesktopOutlined,
+  MailOutlined,
   PieChartOutlined,
 } from "@ant-design/icons";
-import { MenuProps, Menu } from "antd";
+import { MenuProps } from "antd";
 import MenuItem from "antd/es/menu/MenuItem";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { InnerLayoutFooter } from "./InnerLayoutFooter";
 import { InnerLayoutHeader } from "./InnerLayoutHeader";
 import { InnerLayoutTopBar } from "./InnerLayoutTopBar";
 
@@ -49,6 +50,24 @@ const items: MenuItem[] = [
 ];
 
 export const InnerLayout = ({ children }) => {
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = document.getElementById("layout-header");
+      if (header) {
+        const sticky = header.offsetTop;
+        if (window.pageYOffset > sticky) {
+          header.classList.add("sticky");
+        } else {
+          header.classList.remove("sticky");
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <div className="innerlayout-root">
       <div className="innerlayout-page">
@@ -56,6 +75,7 @@ export const InnerLayout = ({ children }) => {
           <InnerLayoutTopBar />
           <InnerLayoutHeader />
           <div className="innerlayout-content">{children}</div>
+          <InnerLayoutFooter />
         </div>
       </div>
     </div>
