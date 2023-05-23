@@ -3,6 +3,7 @@ import axios from 'axios';
 import { ResponseError } from '@/type/api';
 import { Auth } from '@/api/endpoints/auth.api';
 import { Dashboard } from '@/api/endpoints/dashboard.api';
+import { Product } from './endpoints/product.api';
 
 ////////////////////////////////////////
 ////////////////////////////////////////
@@ -13,6 +14,7 @@ import { Dashboard } from '@/api/endpoints/dashboard.api';
 export const api = {
     Auth,
     Dashboard,
+    Product
 };
 
 ////////////////////////////////////////
