@@ -4,6 +4,7 @@ import { ResponseError } from '@/type/api';
 import { Auth } from '@/api/endpoints/auth.api';
 import { Dashboard } from '@/api/endpoints/dashboard.api';
 import { Product } from './endpoints/product.api';
+import { Category } from './endpoints/category.api';
 
 ////////////////////////////////////////
 ////////////////////////////////////////
@@ -14,7 +15,8 @@ import { Product } from './endpoints/product.api';
 export const api = {
     Auth,
     Dashboard,
-    Product
+    Product,
+    Category
 };
 
 ////////////////////////////////////////

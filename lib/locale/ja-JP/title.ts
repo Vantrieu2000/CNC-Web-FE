@@ -4,6 +4,7 @@ export default {
 
   'title.login': 'Đăng nhập',
   'title.homepage': 'Trang Chủ',
+  'title.product': 'Sản phẩm',
   'title.dashboard': 'Dashboard',
 
   'title.undefined': '存在しないページ',

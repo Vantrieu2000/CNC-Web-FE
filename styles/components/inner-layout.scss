@@ -74,6 +74,18 @@ $topbar-height: 90px;
                 color: $text-color-contrast;
                 font-weight: bold;
                 border-bottom: none;
+
+                .ant-menu-submenu-selected {
+                    .ant-menu-submenu-title {
+                        color: $text-color-contrast !important;
+                    }
+                }
+
+                .ant-menu-item-selected {
+                    .ant-menu-title-content {
+                        color: $text-color-contrast !important;
+                    }
+                }
             }
         }
     }

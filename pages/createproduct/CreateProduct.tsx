@@ -1,9 +1,10 @@
 import { api } from "@/api/index";
 import { CustomHandleError, CustomHandleSuccess } from "@/api/responseHandler";
+import success from "@/locale/ja-JP/success";
 import { ResponseError } from "@/type/api";
 import { PlusOutlined } from "@ant-design/icons";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Button, Form, Input, Upload, message } from "antd";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { Button, Form, Input, Select, Upload, message } from "antd";
 import { Page } from "lib/layout/Page";
 import { useState } from "react";
 
@@ -12,11 +13,15 @@ const Create = () => {
   const [form] = Form.useForm();
   const [imageUrl, setImageUrl] = useState<string[]>([]);
 
+  const { data } = useQuery(["get-category"], api.Category.getAllCategory);
+
   const { mutate: CreateProduct, status: statusCreateProduct } = useMutation(api.Product.createProduct, {
     onSuccess: (data) => {
       CustomHandleSuccess(data.status);
     },
-    onError: (error: ResponseError) => CustomHandleError(error),
+    onError: (error: ResponseError) => {
+      CustomHandleError("Thất bại");
+    },
   });
 
   const addImageUrl = (newImageUrl: string) => {
@@ -60,7 +65,7 @@ const Create = () => {
     });
   };
 
-  return (
+  return data ? (
     <div className="my-4">
       <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} form={form} layout="horizontal" onFinish={onFinsh}>
         <Form.Item label="Tên" name={"name"}>
@@ -84,6 +89,9 @@ const Create = () => {
         <Form.Item label="Chi tiết" name={"detail"}>
           <Input />
         </Form.Item>
+        <Form.Item label="Loại nội thất" name={"categoryId"}>
+          <Select options={data.data.map((item) => ({ label: item.name, value: item.id }))}></Select>
+        </Form.Item>
         <Form.Item label="Ảnh" name={"images"}>
           <Upload
             beforeUpload={beforeUpload}
@@ -104,7 +112,7 @@ const Create = () => {
         </Form.Item>
       </Form>
     </div>
-  );
+  ) : null;
 };
 
 export default Page(Create, "InnerLayout", "homepage", "public");

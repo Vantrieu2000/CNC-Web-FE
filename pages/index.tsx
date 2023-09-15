@@ -1,10 +1,11 @@
 import { api } from "@/api/index";
 import { CustomHandleError } from "@/api/responseHandler";
 import Button from "@/components/Button";
-import { Categories } from "@/components/categorys";
+import { LoadingScreen } from "@/components/LoadingScreen";
+import { Categories } from "@/components/categories";
 import { APP_SETTING } from "@/constant/app-settings";
 import { ValidateLibrary } from "@/validate/index";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { Form, Input, Checkbox, Carousel } from "antd";
 import { Page } from "lib/layout/Page";
 import { useRouter } from "next/router";
@@ -29,6 +30,8 @@ function Home() {
     },
   });
 
+  const { data } = useQuery(["data-category"], api.Category.getAllCategoryAndData);
+
   const onFinish = (values) => {
     mutate(values);
   };
@@ -36,7 +39,7 @@ function Home() {
   const autoCompleteMode = "on";
   // localStorage.getItem('saveInfo') === 'true' ? 'on' : 'new-password';
 
-  return (
+  return data ? (
     <div className="hompage" id="homepage">
       <div className="homepage-main">
         <div className="homepage-main__content">
@@ -69,10 +72,14 @@ function Home() {
           </div>
         </div>
         <div className="homepage-main__category">
-          <Categories />
+          {data.data.map((category) => {
+            return <Categories category={category} />;
+          })}
         </div>
       </div>
     </div>
+  ) : (
+    <LoadingScreen />
   );
 }
 
